@@ -10,9 +10,23 @@
     <link rel="icon" type="image/x-icon" href="./logo.png">
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBpO5EgoPIVnVww1-KIYlvXnl9_HEGikzo&libraries=places"></script>
 </head>
 <body onscroll="scroll()">
     <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+        var lat = "";
+        var lon = "";
+        function initialize() {
+            var input = document.getElementById('address');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                // place variable will have all the information you are looking for.
+               lat = place.geometry['location'].lat();
+               lon = place.geometry['location'].lng();
+            });
+        }
         function getScrollPercent() {
             var h = document.documentElement, 
                 b = document.body,
@@ -22,7 +36,7 @@
         }
         
         function scroll(){ 
-            console.log(getScrollPercent());
+            // console.log(getScrollPercent());
             document.documentElement.style.setProperty('--scrollPosition', getScrollPercent()); //for scroll animations
         }   
         
@@ -44,9 +58,14 @@
         }
         
         function getData() {
+            initialize();
             var result = "";
-
-            axios.get('http://localhost:3000/sendAddress')
+            console.log(lat)
+            console.log(lon)
+            axios.post('http://localhost:3000/sendAddress', {
+                lat: lat,
+                lon: lon
+            })
             .then(function (response) {
                 result = response;
                 console.log(result);
@@ -69,22 +88,7 @@
     <button id="goBack" onclick="toSubmit()">Go Back</button>
     
     <!-- Add the this google map apis to webpage -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBpO5EgoPIVnVww1-KIYlvXnl9_HEGikzo&libraries=places"></script>
  
-    <script>
-        google.maps.event.addDomListener(window, 'load', initialize);
-        function initialize() {
-            var input = document.getElementById('address');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.addListener('place_changed', function () {
-                var place = autocomplete.getPlace();
-                // place variable will have all the information you are looking for.
-//
-//                document.getElementById("latitude").value = place.geometry['location'].lat();
-//                document.getElementById("longitude").value = place.geometry['location'].lng();
-            });
-        }
-    </script>
     <img src="wordLogoblack.png" id="words">
     <div id="logoBlock"></div>
     <div id="circle"></div>
