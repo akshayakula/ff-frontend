@@ -15,8 +15,8 @@
 <body onscroll="scroll()">
     <script>
         google.maps.event.addDomListener(window, 'load', initialize);
-        var lat = "";
-        var lon = "";
+        var lat = "37.2296";
+        var lon = "-80.4139";
         function initialize() {
             var input = document.getElementById('address');
             var autocomplete = new google.maps.places.Autocomplete(input);
@@ -68,6 +68,35 @@
             })
             .then(function (response) {
                 result = response;
+                var elementExists = document.getElementById("discordLink") != null;
+                if(!elementExists){
+                    const link = document.createElement("a");
+                    link.innerHTML = "Join Discord Channel";
+                    link.id = "discordLink";
+                    document.body.appendChild(link);
+                }       
+            
+                const link = document.getElementById("discordLink");
+                link.href = "https://google.com";  
+                
+                myMap();
+                window.scrollBy({
+                    top: document.body.scrollHeight *0.3, 
+                    left: 0, 
+                    behavior: 'smooth'
+                });
+                
+                const point = { lat: parseFloat(this.lat), lng: parseFloat(this.lon) };            
+                const map = new google.maps.Map(document.getElementById("googleMap"), {
+                    zoom: 10,
+                    center: point,
+                });
+
+                const marker = new google.maps.Marker({
+                    position: point,
+                    map: map,
+                });
+                
                 console.log(result);
             })
             .catch(function (error) {
@@ -75,6 +104,16 @@
                 console.log(result);
             });   
         }
+        
+        function myMap() {
+            var elementExists = document.getElementById("googleMap") != null;
+            if(!elementExists){
+                const map = document.createElement("div");
+                map.id = "googleMap";
+                document.body.appendChild(map);
+            }
+        }
+
     </script>
     <img src="city.jpg" id="city">
 
@@ -86,8 +125,6 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
     <button id="goBack" onclick="toSubmit()">Go Back</button>
-    
-    <!-- Add the this google map apis to webpage -->
  
     <img src="wordLogoblack.png" id="words">
     <div id="logoBlock"></div>

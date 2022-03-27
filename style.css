@@ -287,9 +287,43 @@
     left:46.5vw;
 }
 
+#discordLink{
+    position: absolute;
+    left: 25vw;
+    top: 60vw;
+    background-color: #8c37ff;  
+    width: 16vw;
+    height: 3vw;
+    padding-top:1vw;
+    
+    border-radius: 35px;
+    border-color: #8c37ff;
+    border-style: none;    
+    
+    color:white;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 600;
+    font-family: 'Cabin', sans-serif;
+}
+#discordLink:hover{
+    left: 24vw;
+    width: 18vw;
+}
+
+#googleMap{
+    position: absolute;
+    left: 55vw;
+    width: 30vw;
+    height: 30vw;
+    top: 50vw;
+    border: 2px solid black;
+}
+
 body{
     background-color: white;
     padding:0px;
     padding-top: 200vh;
     height: 75vh;
+    font-size: = 1vw;
 }
