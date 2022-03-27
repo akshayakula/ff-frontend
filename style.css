@@ -1,4 +1,4 @@
-:root {--scrollPosition:0px}
+:root {--scrollPosition:0}
 
 @keyframes shiftLeftFork {
     0% {
@@ -55,10 +55,10 @@
 
 @keyframes spoon{
     0% {
-        top: calc(-50vw - var(--scrollPosition));
+        top: calc((1 - var(--scrollPosition))*-50vw + var(--scrollPosition)*-143.75vw);
     }
     100% {
-        top: calc(6.25vw - var(--scrollPosition));
+        top: calc((1 - var(--scrollPosition))*6.25vw + var(--scrollPosition)*-143.75vw);
     }
 }
 
@@ -67,13 +67,13 @@
         width: 300vw;
         height: 300vw;
         left:-100vw;
-        top: calc(-100vw - var(--scrollPosition));
+        top: calc((1 - var(--scrollPosition))*-100vw + var(--scrollPosition)*-144.5vw);
     }
     100%{
         width: 9vw;
         height: 9vw;
         left:45.5vw;
-        top: calc(5.5vw - var(--scrollPosition));
+        top: calc((1 - var(--scrollPosition))*5.5vw + var(--scrollPosition)*-144.5vw);
     }
 }
 
@@ -107,7 +107,7 @@
 #leftFork {
     width: 3vw;
     position: fixed;
-    top: calc(8vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*8vw + var(--scrollPosition)*-142vw);
     left: 150vw;
     animation: leftFork 1.5s ease-out, shiftLeftFork 1s 2.5s ease-in-out;
     animation-fill-mode: forwards;
@@ -116,7 +116,7 @@
 #rightFork {
     width: 3vw;
     position: fixed;
-    top: calc(8vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*8vw + var(--scrollPosition)*-142vw);
     right:150vw;
     animation: rightFork 1.5s ease-out, shiftRightFork 1s 2.5s ease-in-out;
     animation-fill-mode: forwards;
@@ -147,10 +147,10 @@
     width:50vw;
     height:10vw;
     position:fixed;
-    top: calc(5vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*5vw + var(--scrollPosition)*-142.25vw);
     left:0vw;
     background-color: white;
-    animation: logoBlockShift 1s 2.75s, disappear 0s 3.5s;
+    animation: logoBlockShift 1s 2.5s, disappear 0s 3.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
@@ -158,7 +158,7 @@
 #words{
     width:20vw;
     position:fixed;
-    top: calc(7.75vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*7.75vw + var(--scrollPosition)*-142.25vw);
     left:25vw;
     animation: wordShift 1s 2.5s;
     animation-timing-function: ease-in-out;
@@ -168,7 +168,7 @@
 #city{
     position:fixed;
     width:100vw;
-    top: calc(5vw - var(--scrollPosition)/2.3);
+    top: calc((1 - var(--scrollPosition))*5vw + var(--scrollPosition)*-30vw);
     left:0vw;
 }
 
@@ -176,7 +176,7 @@
     position: fixed;
     background-color: black;
     left:30vw;
-    top: calc(30vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*30vw + var(--scrollPosition)*-120vw);
     width: 30vw;
     height: 1vw;
     padding:1vw;
@@ -189,7 +189,7 @@
     position: fixed;
     background-color: #FF5502;
     left:57vw;
-    top: calc(30vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*30vw + var(--scrollPosition)*-120vw);
     width: 10.5vw;
     height: 3.25vw;
     padding-right:1.5vw;
@@ -216,7 +216,7 @@
     position: fixed;
     background-color: white;
     left:63.5vw;
-    top: calc(30vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*30vw + var(--scrollPosition)*-120vw);
     width: 8.75vw;
     height: 3.25vw;
     padding-right:1vw;
@@ -244,30 +244,29 @@
     position: fixed;
     width: 100%;
     left: 45wv;
-    top: calc(102vw - var(--scrollPosition));
-    
+    top: calc((1 - var(--scrollPosition))*168vw + var(--scrollPosition)*18vw);
     color: #2f2f2f;
-    text-align: center;
     font-weight: 600;
+    text-align: center;
     font-family: 'Cabin', sans-serif;
+    font-size: 2.5vw;
 }
 
 #paragraph{
     position: fixed;
     width: 60vw;
     padding-left: 20vw;
-    top: calc(107vw - var(--scrollPosition));
-    
+    top: calc((1 - var(--scrollPosition))*173vw + var(--scrollPosition)*23vw);
     color: #585858;
     text-align: center;
     font-family: 'Cabin', sans-serif;
-    font-size: 23px;
+    font-size: 1.8vw;
 }
 
 #goBack{
     position: fixed;
     left: 47vw;
-    top: calc(125vw - var(--scrollPosition));
+    top: calc((1 - var(--scrollPosition))*190vw + var(--scrollPosition)*40vw);
     background-color: #FF5502;  
     width: 7.5vw;
     height: 3.25vw;
