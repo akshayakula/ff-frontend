@@ -1,0 +1,165 @@
+@keyframes shiftLeftFork {
+    0% {
+        left: 46.25vw
+    }
+    100%{
+        left: 35.25vw;
+    }
+}
+@keyframes shiftRightFork {
+    0% {
+        left: 50.75vw
+    }
+    100%{
+        left: 39.75vw;
+    }
+}
+@keyframes shiftSpoon {
+    0% {
+        left: 49.1vw;
+    }
+    100%{
+        left: 38.1vw;
+    }
+}
+@keyframes shiftCircle {
+    0% {
+        left: 45.5vw;
+    }
+    100%{
+        left: 34.5vw;
+    }
+}
+
+@keyframes leftFork {
+    0% {
+        -webkit-transform:rotate(500deg);
+        left:150vw
+    }
+    100% {
+        left:46.25vw;
+    }
+}
+
+@keyframes rightFork {
+    0% {
+        -webkit-transform:rotate(-500deg);
+        left:-50vw
+    }
+    100% {
+        left:50.75vw;
+    }
+}
+
+@keyframes spoon{
+    0% {
+        top: -50vw;
+    }
+    100% {
+        top: 11.25vw;
+    }
+}
+
+@keyframes bcircle{
+    0%{
+        width: 300vw;
+        height: 300vw;
+        left:-100vw;
+        top:-100vw;
+    }
+    100%{
+        width: 9vw;
+        height: 9vw;
+        left:45.5vw;
+        top:10.5vw;
+    }
+}
+
+@keyframes logoBlockShift{
+    0%{  
+        width:50vw;
+    }
+    100%{
+        width:39vw;
+    }
+}
+
+@keyframes wordShift{
+    0%{
+        left:25vw;
+    }
+    100%{
+        left:45vw;
+    }
+}
+
+#leftFork {
+    width: 3vw;
+    position: fixed;
+    top: 13vw;
+    left: 150vw;
+    animation: leftFork 1.5s 0.75s, shiftLeftFork 1s 3.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+#rightFork {
+    width: 3vw;
+    position: fixed;
+    top:13vw;
+    right:150vw;
+    animation: rightFork 1.5s 0.75s, shiftRightFork 1s 3.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+#spoon {
+    width: 1.8vw;
+    position: fixed;
+    left: 49.1vw;
+    top:-50vw;
+    animation: spoon 1.5s 0.75s, shiftSpoon 1s 3.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+#circle{
+    width: 300vw;
+    height: 300vw;
+    left:-100vw;
+    top:-100vw;
+    position: fixed;
+    background-color: #FF5502;
+    border-radius: 50%;
+    animation: bcircle 1.5s 1.5s, shiftCircle 1s 3.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+#logoBlock{
+    width:50vw;
+    height:10vw;
+    position:fixed;
+    top:10vw;
+    left:0vw;
+    background-color: #393939;
+    animation: logoBlockShift 1s 3.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+#words{
+    width:20vw;
+    position:fixed;
+    top:12.5vw;
+    left:15vw;
+    animation: wordShift 1s 3.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+body{
+    background-color: #393939;
+    padding:0px;
+    padding-top: 20vw;
+}
