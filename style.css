@@ -1,3 +1,5 @@
+:root {--scrollPosition:0px}
+
 @keyframes shiftLeftFork {
     0% {
         left: 46.25vw
@@ -33,7 +35,7 @@
 
 @keyframes leftFork {
     0% {
-        -webkit-transform:rotate(500deg);
+        -webkit-transform:rotate(900deg);
         left:150vw
     }
     100% {
@@ -43,7 +45,7 @@
 
 @keyframes rightFork {
     0% {
-        -webkit-transform:rotate(-500deg);
+        -webkit-transform:rotate(-900deg);
         left:-50vw
     }
     100% {
@@ -53,10 +55,10 @@
 
 @keyframes spoon{
     0% {
-        top: -50vw;
+        top: calc(-50vw - var(--scrollPosition));
     }
     100% {
-        top: 11.25vw;
+        top: calc(6.25vw - var(--scrollPosition));
     }
 }
 
@@ -65,13 +67,13 @@
         width: 300vw;
         height: 300vw;
         left:-100vw;
-        top:-100vw;
+        top: calc(-100vw - var(--scrollPosition));
     }
     100%{
         width: 9vw;
         height: 9vw;
         left:45.5vw;
-        top:10.5vw;
+        top: calc(5.5vw - var(--scrollPosition));
     }
 }
 
@@ -93,23 +95,30 @@
     }
 }
 
+@keyframes disappear{
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
 #leftFork {
     width: 3vw;
     position: fixed;
-    top: 13vw;
+    top: calc(8vw - var(--scrollPosition));
     left: 150vw;
-    animation: leftFork 1.5s 0.75s, shiftLeftFork 1s 3.5s;
-    animation-timing-function: ease-out;
+    animation: leftFork 1.5s ease-out, shiftLeftFork 1s 2.5s ease-in-out;
     animation-fill-mode: forwards;
 }
 
 #rightFork {
     width: 3vw;
     position: fixed;
-    top:13vw;
+    top: calc(8vw - var(--scrollPosition));
     right:150vw;
-    animation: rightFork 1.5s 0.75s, shiftRightFork 1s 3.5s;
-    animation-timing-function: ease-out;
+    animation: rightFork 1.5s ease-out, shiftRightFork 1s 2.5s ease-in-out;
     animation-fill-mode: forwards;
 }
 
@@ -118,8 +127,7 @@
     position: fixed;
     left: 49.1vw;
     top:-50vw;
-    animation: spoon 1.5s 0.75s, shiftSpoon 1s 3.5s;
-    animation-timing-function: ease-out;
+    animation: spoon 1.5s ease-out, shiftSpoon 1s 2.5s ease-in-out;
     animation-fill-mode: forwards;
 }
 
@@ -131,8 +139,7 @@
     position: fixed;
     background-color: #FF5502;
     border-radius: 50%;
-    animation: bcircle 1.5s 1.5s, shiftCircle 1s 3.5s;
-    animation-timing-function: ease-out;
+    animation: bcircle 1.5s 0.75s ease-out, shiftCircle 1s 2.5s ease-in-out;
     animation-fill-mode: forwards;
 }
 
@@ -140,26 +147,149 @@
     width:50vw;
     height:10vw;
     position:fixed;
-    top:10vw;
+    top: calc(5vw - var(--scrollPosition));
     left:0vw;
-    background-color: #393939;
-    animation: logoBlockShift 1s 3.5s;
-    animation-timing-function: ease-out;
+    background-color: white;
+    animation: logoBlockShift 1s 2.75s, disappear 0s 3.5s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
 
 #words{
     width:20vw;
     position:fixed;
-    top:12.5vw;
-    left:15vw;
-    animation: wordShift 1s 3.5s;
-    animation-timing-function: ease-out;
+    top: calc(7.75vw - var(--scrollPosition));
+    left:25vw;
+    animation: wordShift 1s 2.5s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
 
+#city{
+    position:fixed;
+    width:100vw;
+    top: calc(5vw - var(--scrollPosition)/2.3);
+    left:0vw;
+}
+
+#address{
+    position: fixed;
+    background-color: black;
+    left:30vw;
+    top: calc(30vw - var(--scrollPosition));
+    width: 30vw;
+    height: 1vw;
+    padding:1vw;
+    border-radius: 35px;
+    border-color: black;
+    color:white;
+}
+
+#submit{
+    position: fixed;
+    background-color: #FF5502;
+    left:57vw;
+    top: calc(30vw - var(--scrollPosition));
+    width: 10.5vw;
+    height: 3.25vw;
+    padding-right:1.5vw;
+    
+    border-radius: 35px;
+    border-color: #FF5502;
+    border-style: none;    
+    
+    color:white;
+    text-align: right;
+    font-size: 1.5vw;
+    font-weight: 600;
+    font-family: 'Cabin', sans-serif;
+}
+#submit:active{
+    border-style: none;
+}
+#submit:hover{
+    left:58vw;
+    padding-right: 2vw;
+}
+
+#help{
+    position: fixed;
+    background-color: white;
+    left:63.5vw;
+    top: calc(30vw - var(--scrollPosition));
+    width: 8.75vw;
+    height: 3.25vw;
+    padding-right:1vw;
+    
+    border-radius: 35px;
+    border-width: 1px;
+    border: 1px black solid;
+    
+    color:#3b3b3b;
+    text-align: right;
+    font-size: 1.5vw;
+    font-weight: 600;
+    font-family: 'Cabin', sans-serif;
+}
+#help:active{
+    border: 1px black solid;
+}
+#help:hover{
+    border: 1px black solid;
+    left:64.5vw;
+    padding-right: 1.5vw;
+}
+
+#title{
+    position: fixed;
+    width: 100%;
+    left: 45wv;
+    top: calc(100vw - var(--scrollPosition));
+    
+    color: #2f2f2f;
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Cabin', sans-serif;
+}
+
+#paragraph{
+    position: fixed;
+    width: 60%;
+    padding-left: 20%;
+    top: calc(107vw - var(--scrollPosition));
+    
+    color: #585858;
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    font-size: 23px;
+}
+
+#goBack{
+    position: fixed;
+    left: 47vw;
+    top: calc(125vw - var(--scrollPosition));
+    background-color: #FF5502;  
+    width: 7.5vw;
+    height: 3.25vw;
+    
+    border-radius: 35px;
+    border-color: #FF5502;
+    border-style: none;    
+    
+    color:white;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 600;
+    font-family: 'Cabin', sans-serif;
+}
+#goBack:hover{
+    width: 8.5vw;
+    left:46.5vw;
+}
+
 body{
-    background-color: #393939;
+    background-color: white;
     padding:0px;
-    padding-top: 20vw;
+    padding-top: 200vh;
+    height: 75vh;
 }

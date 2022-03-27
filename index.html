@@ -3,13 +3,44 @@
 <head>
     <title>Get latitude and longitude from address google map api javascript</title>
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">    
 </head>
-<body>
-    <div style="z-index: 999;">
-         <h3> Enter an adress and press the button</h3>
+<body onscroll="scroll()">
+    <script>
+        function scroll(){
+            document.documentElement.style.setProperty('--scrollPosition', document.documentElement.scrollTop + "px"); //for scroll animations
+        }   
+        
+        function toInfo(){
+            window.scrollBy({
+                top: 2000, 
+                left: 0, 
+                behavior: 'smooth'
+            });
+        }
+        
+        function toSubmit(){
+            window.scrollBy({
+                top: -2000, 
+                left: 0, 
+                behavior: 'smooth'
+            });
+        }
+        
+    </script>
+    <img src="city.jpg" id="city">
 
-        <input id="address" type="text" placeholder="Enter address here" />
-    </div>
+    <button id="help" onclick="toInfo()">Info?</button>
+    <button id="submit">Fyte!</button>
+    <input id="address" type="text" placeholder="Enter address here" />
+    <h1 id="title">How does FoodFyte Work?</h1>
+    <p id="paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <button id="goBack" onclick="toSubmit()">Go Back</button>
     
     <!-- Add the this google map apis to webpage -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBpO5EgoPIVnVww1-KIYlvXnl9_HEGikzo&libraries=places"></script>
@@ -28,8 +59,7 @@
             });
         }
     </script>
-    
-    <img src="wordLogo.png" id="words">
+    <img src="wordLogoblack.png" id="words">
     <div id="logoBlock"></div>
     <div id="circle"></div>
     <img src="Spoon.png" id="spoon">
