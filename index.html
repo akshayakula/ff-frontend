@@ -77,7 +77,8 @@
                 }       
             
                 const link = document.getElementById("discordLink");
-                link.href = "https://google.com";  
+                console.log(result.data)
+                link.href = result.data.link;  
                 
                 myMap();
                 window.scrollBy({
@@ -120,10 +121,9 @@
     <button id="help" onclick="toInfo()">Info?</button>
     <button id="submit" onclick="getData()">Fyte</button>
     <input id="address" type="text" placeholder="Enter address here" />
-    <p id="title">How does FoodFyte Work?</p>
+    <p id="title">Why FoodFyte?</p>
     <p id="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+        Being college students in a town with poor public transportation and no car has made us realize the impact of food accessibility to our health. Always low on time and options it just becomes much easier to reach for long lasting unhealthy options that can be stocked up on (ex. Ramen, Chips). After dealing with this issue for two years, my neighbors and I developed a system of getting groceries that allows me to ride along with them and shop healthy options.
     <button id="goBack" onclick="toSubmit()">Go Back</button>
  
     <img src="wordLogoblack.png" id="words">
