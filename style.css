@@ -210,7 +210,7 @@
 }
 #submit:hover{
     left:58vw;
-    padding-right: 2vw;
+    padding-right: 2.5vw;
 }
 
 #help{
@@ -218,7 +218,7 @@
     background-color: white;
     left:63.5vw;
     top: calc((1 - var(--scrollPosition))*30vw + var(--scrollPosition)*-120vw);
-    width: 8.75vw;
+    width: 9.5vw;
     height: 3.25vw;
     padding-right:1vw;
     
@@ -238,7 +238,7 @@
 #help:hover{
     border: 1px black solid;
     left:64.5vw;
-    padding-right: 1.5vw;
+    padding-right: 2vw;
 }
 
 #title{
