@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">  
     <link rel="icon" type="image/x-icon" href="./logo.png">
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body onscroll="scroll()">
     <script>
@@ -41,11 +43,24 @@
             });
         }
         
+        function getData() {
+            var result = "";
+
+            axios.get('http://localhost:3000/sendAddress')
+            .then(function (response) {
+                result = response;
+                console.log(result);
+            })
+            .catch(function (error) {
+                console.log("ERROR");
+                console.log(result);
+            });   
+        }
     </script>
     <img src="city.jpg" id="city">
 
     <button id="help" onclick="toInfo()">Info?</button>
-    <button id="submit">Fyte</button>
+    <button id="submit" onclick="getData()">Fyte</button>
     <input id="address" type="text" placeholder="Enter address here" />
     <p id="title">How does FoodFyte Work?</p>
     <p id="paragraph">
